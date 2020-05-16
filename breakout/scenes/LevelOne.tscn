@@ -1,0 +1,75 @@
+[gd_scene load_steps=6 format=2]
+
+[ext_resource path="res://Textures/paddle.png" type="Texture" id=1]
+[ext_resource path="res://Textures/ball.png" type="Texture" id=2]
+
+[sub_resource type="RectangleShape2D" id=1]
+extents = Vector2( 40, 4 )
+
+[sub_resource type="PhysicsMaterial" id=3]
+friction = 0.0
+bounce = 1.0
+
+[sub_resource type="CircleShape2D" id=2]
+radius = 8.00002
+
+[node name="World" type="Node2D"]
+__meta__ = {
+"_edit_lock_": true
+}
+
+[node name="Paddle" type="KinematicBody2D" parent="."]
+position = Vector2( 11.9789, 28.9733 )
+__meta__ = {
+"_edit_lock_": true
+}
+
+[node name="Sprite" type="Sprite" parent="Paddle"]
+position = Vector2( 220.021, 286.129 )
+scale = Vector2( 0.190476, 0.206812 )
+texture = ExtResource( 1 )
+__meta__ = {
+"_edit_lock_": true
+}
+
+[node name="Collision" type="CollisionShape2D" parent="Paddle"]
+position = Vector2( 220.021, 286.395 )
+shape = SubResource( 1 )
+__meta__ = {
+"_edit_lock_": true
+}
+
+[node name="Ball" type="RigidBody2D" parent="."]
+position = Vector2( 11.9789, 28.9733 )
+mode = 2
+physics_material_override = SubResource( 3 )
+gravity_scale = 0.0
+linear_velocity = Vector2( 200, -200 )
+linear_damp = 0.0
+angular_damp = 0.0
+__meta__ = {
+"_edit_lock_": true
+}
+
+[node name="Sprite" type="Sprite" parent="Ball"]
+position = Vector2( 236.021, 195.027 )
+scale = Vector2( 0.0542373, 0.0544218 )
+texture = ExtResource( 2 )
+__meta__ = {
+"_edit_lock_": true
+}
+
+[node name="Collision" type="CollisionShape2D" parent="Ball"]
+position = Vector2( 236.021, 195.027 )
+shape = SubResource( 2 )
+__meta__ = {
+"_edit_lock_": true
+}
+
+[node name="Walls" type="StaticBody2D" parent="."]
+position = Vector2( -88.9461, -38.9599 )
+
+[node name="Collision" type="CollisionPolygon2D" parent="Walls"]
+position = Vector2( 88.9461, 86.9599 )
+scale = Vector2( 1, 0.992052 )
+polygon = PoolVector2Array( 0.0549316, 405.413, -120.134, 405.413, -121.426, -98.6052, 769.006, -101.19, 769.006, 406.706, 642.356, 407.998, 639.771, -43.034, 0.0549316, -53.3728 )

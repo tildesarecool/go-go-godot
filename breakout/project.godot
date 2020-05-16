@@ -33,7 +33,22 @@ _global_script_class_icons={
 [application]
 
 config/name="breakout"
+run/main_scene="res://scenes/LevelOne.tscn"
 config/icon="res://icon.png"
+
+[autoload]
+
+UserData="*res://addons/github-integration/scripts/user_data.gd"
+IconLoaderGithub="*res://addons/github-integration/scripts/IconLoaderGithub.gd"
+
+[display]
+
+window/size/width=640
+window/size/height=360
+
+[editor_plugins]
+
+enabled=PoolStringArray( "aseprite_importer", "github-integration" )
 
 [rendering]
 
